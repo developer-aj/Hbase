@@ -1,4 +1,4 @@
-package com.hbase.loadData;
+package com.hbase.util;
 
 import java.io.IOException;
 
@@ -11,25 +11,24 @@ import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.conf.Configuration;
 
 public class CreateTable {
-      
-   public static void main(String[] args) throws IOException {
 
-      // Instantiating configuration class
-      Configuration con = HBaseConfiguration.create();
+	public static void main(String[] args) throws IOException {
 
-      // Instantiating HbaseAdmin class
-      HBaseAdmin admin = new HBaseAdmin(con);
+		// Instantiating configuration class
+		Configuration con = HBaseConfiguration.create();
 
-      // Instantiating table descriptor class
-      HTableDescriptor tableDescriptor = new
-      TableDescriptor(TableName.valueOf("emp"));
+		// Instantiating HbaseAdmin class
+		HBaseAdmin admin = new HBaseAdmin(con);
 
-      // Adding column families to table descriptor
-      tableDescriptor.addFamily(new HColumnDescriptor("personal"));
-      tableDescriptor.addFamily(new HColumnDescriptor("professional"));
+		// Instantiating table descriptor class
+		HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("emp"));
 
-      // Execute the table through admin
-      admin.createTable(tableDescriptor);
-      System.out.println(" Table created ");
-   }
+		// Adding column families to table descriptor
+		tableDescriptor.addFamily(new HColumnDescriptor("personal"));
+		tableDescriptor.addFamily(new HColumnDescriptor("professional"));
+
+		// Execute the table through admin
+		admin.createTable(tableDescriptor);
+		System.out.println(" Table created ");
+	}
 }

@@ -1,6 +1,7 @@
-package com.hbase.loadData;
+package com.hbase.util;
 import java.io.IOException;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Connection;
@@ -43,7 +44,7 @@ public class HbaseClient {
       // When done with it, close it (Should start a try/finally after this creation so it gets
       // closed for sure the jdk7 idiom, try-with-resources: see
       // https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html)
-      Table table = connection.getTable(TableName.valueOf("myLittleHBaseTable"));
+      Table table = connection.getTable(TableName.valueOf("emp"));
       try {
 
         // To add to a row, use Put.  A Put constructor takes the name of the row
