@@ -16,6 +16,7 @@ public class CreateTable {
 
 		// Instantiating configuration class
 		Configuration con = HBaseConfiguration.create();
+		con.set("hbase.zookeeper.quorum", "server’s IP address");
 
 		// Instantiating HbaseAdmin class
 		HBaseAdmin admin = new HBaseAdmin(con);
